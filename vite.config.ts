@@ -13,8 +13,8 @@ export default defineConfig({
       manifest: {
         name: "Tawafuq Bain Al A'dadain",
         short_name: 'Tawafuq',
-        theme_color: '#0e5f66',
-        background_color: '#f4f5f2',
+        theme_color: '#fbf8f3',
+        background_color: '#fbf8f3',
         display: 'standalone',
         start_url: '/',
         icons: [
@@ -32,7 +32,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest,woff2}'],
       },
     }),
   ],
