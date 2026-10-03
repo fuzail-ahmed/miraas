@@ -57,7 +57,7 @@
   --ink: #1f1b16;
   --text-secondary: #625b52;
   --border: #d8cabb;
-  --border-strong: #a99987;
+  --border-strong: #927f6a;
   --accent: #0e5a54;
   --accent-hover: #094a46;
   --accent-ink: #fffdf9;
@@ -233,7 +233,8 @@ button:focus-visible {
 }
 
 input[aria-invalid='true'] {
-  border-color: var(--error);
+  border: 2px solid var(--error);
+  padding: calc(var(--space-3) - 1px);
 }
 
 .controls {
@@ -277,7 +278,7 @@ input[aria-invalid='true'] {
 }
 
 .input-error {
-  margin: var(--space-4) 0 0;
+  margin: var(--space-3) 0 0;
   color: var(--error);
   font-size: 0.94rem;
   font-weight: 700;
@@ -322,8 +323,15 @@ h2 {
 }
 
 .divisor-result {
+  display: grid;
+  grid-template-columns: max-content var(--space-4) max-content var(--space-4) max-content;
+  justify-content: start;
   border-bottom: 1px solid var(--border);
   padding: var(--space-5) 0;
+}
+
+.divisor-result > h3 {
+  grid-column: 1 / -1;
 }
 
 .divisor-result:last-child {
@@ -352,12 +360,9 @@ h3 strong {
 
 .equation {
   display: grid;
-  grid-template-columns: max-content var(--space-4) max-content var(--space-4) minmax(
-      0,
-      max-content
-    );
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
   align-items: baseline;
-  justify-content: start;
   margin: var(--space-1) 0 0;
   color: var(--ink);
   direction: ltr;
@@ -396,7 +401,7 @@ h3 strong {
 }
 
 .button-update {
-  min-height: 36px;
+  min-height: 44px;
   border-color: var(--border-strong);
   background: var(--surface-strong);
   color: var(--ink);

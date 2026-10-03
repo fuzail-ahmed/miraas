@@ -140,6 +140,12 @@ export default function App() {
             </div>
           </div>
 
+          {errorMessage ? (
+            <p id="input-error" className="input-error" role="alert">
+              {errorMessage}
+            </p>
+          ) : null}
+
           <div className="controls">
             <button className="button button-primary" type="submit">
               Calculate
@@ -152,12 +158,6 @@ export default function App() {
               Clear
             </button>
           </div>
-
-          {errorMessage ? (
-            <p id="input-error" className="input-error" role="alert">
-              {errorMessage}
-            </p>
-          ) : null}
         </form>
 
         <section
