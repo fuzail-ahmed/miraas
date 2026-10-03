@@ -48,7 +48,7 @@ and print behavior without stored preferences.
 
 ## Fonts
 
-The interface self-hosts Noto Naskh Arabic in regular and bold for the Arabic
+The interface self-hosts Amiri (regular) for the Arabic
 title, and Source Serif 4 at weight 600 for Latin headings. Both are bundled
 from Fontsource, distributed under the SIL Open Font License 1.1, and cached
 with the app for offline use. Full license texts are committed in licenses.

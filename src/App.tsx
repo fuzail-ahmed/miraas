@@ -149,7 +149,7 @@ export default function App() {
           <p className="eyebrow">Arithmetic instrument</p>
           <h1 id="app-title">{TITLE}</h1>
           <p className="arabic-title" lang="ar" dir="rtl">
-            <span className="arabic-title-emphasis">توافق</span> بين العددين
+            توافق بين العددين
           </p>
           <p className="subtitle">Common divisors and wafq operations</p>
         </header>
