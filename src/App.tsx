@@ -4,7 +4,6 @@ import { useRegisterSW } from 'virtual:pwa-register/react';
 import { calculate, validateInputs, type DivisionOperation } from './tawafuq';
 
 const TITLE = "Tawafuq Bain Al A'dadain";
-const ARABIC_TITLE = 'توافق بين العددين';
 
 interface CalculationState {
   first: number;
@@ -15,7 +14,7 @@ interface CalculationState {
 function copyTextFor(calculation: CalculationState): string {
   const lines = [
     TITLE,
-    ARABIC_TITLE,
+    'توافق بين العددين',
     'First number: ' + calculation.first,
     'Second number: ' + calculation.second,
     '',
@@ -100,7 +99,7 @@ export default function App() {
           <p className="eyebrow">Arithmetic instrument</p>
           <h1 id="app-title">{TITLE}</h1>
           <p className="arabic-title" lang="ar" dir="rtl">
-            {ARABIC_TITLE}
+            <span className="arabic-title-emphasis">توافق</span> بين العددين
           </p>
           <p className="subtitle">Common divisors and wafq operations</p>
         </header>
@@ -202,18 +201,26 @@ export default function App() {
                       Common divisor <strong>{operation.divisor}</strong>
                     </h3>
                     <p className="equation" dir="ltr">
-                      {calculation.first +
-                        ' ÷ ' +
-                        operation.divisor +
-                        ' = ' +
-                        operation.firstQuotient}
+                      <span>{calculation.first}</span>
+                      <span className="equation-symbol" aria-hidden="true">
+                        ÷
+                      </span>
+                      <span>{operation.divisor}</span>
+                      <span className="equation-symbol" aria-hidden="true">
+                        =
+                      </span>
+                      <span>{operation.firstQuotient}</span>
                     </p>
                     <p className="equation" dir="ltr">
-                      {calculation.second +
-                        ' ÷ ' +
-                        operation.divisor +
-                        ' = ' +
-                        operation.secondQuotient}
+                      <span>{calculation.second}</span>
+                      <span className="equation-symbol" aria-hidden="true">
+                        ÷
+                      </span>
+                      <span>{operation.divisor}</span>
+                      <span className="equation-symbol" aria-hidden="true">
+                        =
+                      </span>
+                      <span>{operation.secondQuotient}</span>
                     </p>
                   </article>
                 );

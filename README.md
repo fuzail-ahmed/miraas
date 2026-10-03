@@ -46,6 +46,13 @@ single React screen owns the input strings, presentation, copy action, and
 service-worker update prompt. CSS supplies the responsive, dark, reduced-motion,
 and print behavior without stored preferences.
 
+## Fonts
+
+The interface self-hosts Noto Naskh Arabic in regular and bold for the Arabic
+title, and Source Serif 4 at weight 600 for Latin headings. Both are bundled
+from Fontsource, distributed under the SIL Open Font License 1.1, and cached
+with the app for offline use. Full license texts are committed in licenses.
+
 ## License
 
 MIT. See LICENSE.

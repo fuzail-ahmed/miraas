@@ -23,6 +23,14 @@ and result-list size if that cap rises past roughly 1e12.
 
 Do not add dependencies without asking first.
 
+## Fonts
+
+Use self-hosted OFL-compatible fonts only. Arabic typography may use bundled
+Fontsource assets with explicit unicode ranges; do not add CDN font links
+because offline use and restrictive CSPs must keep working. Keep total shipped
+font files below 150 KB, import only the weights that render, and ensure Vite
+bundles and the service worker precaches them.
+
 ## Commands
 
 ```
