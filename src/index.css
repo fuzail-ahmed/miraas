@@ -310,6 +310,9 @@ h2 {
 
 .copy-button {
   flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .empty-state {
@@ -324,9 +327,9 @@ h2 {
 
 .divisor-result {
   display: grid;
-  grid-template-columns: max-content var(--space-4) max-content var(
-      --space-4
-    ) max-content;
+  grid-template-columns:
+    max-content var(--space-4) max-content var(--space-4)
+    max-content;
   justify-content: start;
   border-bottom: 1px solid var(--border);
   padding: var(--space-5) 0;

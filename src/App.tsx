@@ -3,6 +3,32 @@ import { useRegisterSW } from 'virtual:pwa-register/react';
 
 import { calculate, validateInputs, type DivisionOperation } from './tawafuq';
 
+function CopyGlyph({ done }: { done: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {done ? (
+        <path d="M5 13l4 4L19 7" />
+      ) : (
+        <>
+          <rect x="9" y="9" width="11" height="11" rx="2" />
+          <path d="M5 15V6a2 2 0 0 1 2-2h9" />
+        </>
+      )}
+    </svg>
+  );
+}
+
 const TITLE = "Tawafuq Bain Al A'dadain";
 
 interface CalculationState {
@@ -48,6 +74,8 @@ export default function App() {
   const [secondInput, setSecondInput] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [calculation, setCalculation] = useState<CalculationState | null>(null);
+  const [copied, setCopied] = useState(false);
+  const copiedTimer = useRef<number>(undefined);
   const {
     needRefresh: [needRefresh],
     updateServiceWorker,
@@ -87,6 +115,9 @@ export default function App() {
 
     try {
       await navigator.clipboard.writeText(copyTextFor(calculation));
+      setCopied(true);
+      window.clearTimeout(copiedTimer.current);
+      copiedTimer.current = window.setTimeout(() => setCopied(false), 1500);
     } catch {
       // Copy is intentionally best-effort when the Clipboard API is unavailable.
     }
@@ -94,6 +125,9 @@ export default function App() {
 
   return (
     <main className="app-shell">
+      <p className="sr-only" role="status">
+        {copied ? 'Copied' : ''}
+      </p>
       <section className="instrument" aria-labelledby="app-title">
         <header className="app-header">
           <p className="eyebrow">Arithmetic instrument</p>
@@ -177,6 +211,7 @@ export default function App() {
                 type="button"
                 onClick={() => void handleCopy()}
               >
+                <CopyGlyph done={copied} />
                 Copy
               </button>
             ) : null}
