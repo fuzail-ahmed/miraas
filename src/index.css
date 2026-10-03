@@ -1,0 +1,510 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: light dark;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  color: #182325;
+  background: #f4f5f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #f4f5f2;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #f4f5f2;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 24px 16px 72px;
+}
+
+.instrument {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.app-header {
+  border-bottom: 1px solid #a8b6b1;
+  padding: 20px 0 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #4a6162;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: #142e31;
+  font-family: ui-serif, Georgia, Cambria, 'Times New Roman', serif;
+  letter-spacing: 0;
+}
+
+h1 {
+  max-width: 22ch;
+  margin-bottom: 4px;
+  font-size: 2.35rem;
+  font-weight: 650;
+  line-height: 1.05;
+}
+
+.arabic-title {
+  width: fit-content;
+  margin: 0 0 9px;
+  color: #0e5f66;
+  font-family: Tahoma, 'Segoe UI', Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.subtitle {
+  margin-bottom: 0;
+  color: #536564;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.calculation-form {
+  border-bottom: 1px solid #a8b6b1;
+  padding: 28px 0;
+}
+
+.field-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  color: #263b3d;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #879b98;
+  border-radius: 4px;
+  padding: 10px 12px;
+  background: #fffefa;
+  color: #142e31;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
+
+input:hover {
+  border-color: #416d70;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #d4713f;
+  outline-offset: 2px;
+}
+
+input[aria-invalid='true'] {
+  border-color: #aa3d2a;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.button {
+  min-height: 44px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 750;
+  line-height: 1.15;
+}
+
+.button-primary {
+  background: #0e5f66;
+  color: #ffffff;
+}
+
+.button-primary:hover {
+  background: #0a4e54;
+}
+
+.button-secondary {
+  border-color: #718784;
+  background: transparent;
+  color: #23484c;
+}
+
+.button-secondary:hover {
+  border-color: #0e5f66;
+  background: #e1ece9;
+}
+
+.input-error {
+  margin: 16px 0 0;
+  color: #943324;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.results-region {
+  padding: 30px 0 0;
+}
+
+.results-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #d1dad6;
+  padding-bottom: 15px;
+}
+
+.results-heading .eyebrow {
+  margin-bottom: 6px;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 1.55rem;
+  font-weight: 650;
+  line-height: 1.15;
+}
+
+.copy-button {
+  flex: 0 0 auto;
+}
+
+.empty-state {
+  margin: 22px 0 0;
+  color: #536564;
+  line-height: 1.55;
+}
+
+.divisor-list {
+  border-bottom: 1px solid #a8b6b1;
+}
+
+.divisor-result {
+  border-bottom: 1px solid #d1dad6;
+  padding: 20px 0;
+}
+
+.divisor-result:last-child {
+  border-bottom: 0;
+}
+
+h3 {
+  margin-bottom: 12px;
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h3 strong {
+  color: #0e5f66;
+  font-size: 1.4em;
+  font-variant-numeric: tabular-nums;
+}
+
+.equation {
+  overflow-wrap: anywhere;
+  margin: 5px 0 0;
+  color: #263b3d;
+  direction: ltr;
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.55;
+  unicode-bidi: isolate;
+}
+
+.update-banner {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100vw - 32px);
+  border: 1px solid #0e5f66;
+  border-radius: 4px;
+  padding: 10px 10px 10px 14px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgb(20 46 49 / 18%);
+  color: #142e31;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.button-update {
+  min-height: 36px;
+  background: #0e5f66;
+  color: #ffffff;
+}
+
+.button-update:hover {
+  background: #0a4e54;
+}
+
+@media (min-width: 620px) {
+  .app-shell {
+    padding: 48px 32px 88px;
+  }
+
+  .app-header {
+    padding: 28px 0 34px;
+  }
+
+  h1 {
+    font-size: 3.25rem;
+  }
+
+  .field-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .calculation-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 20px;
+  }
+
+  .controls {
+    align-self: end;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+
+  .input-error {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root,
+  html,
+  body {
+    color: #edf3f0;
+    background: #101817;
+  }
+
+  .app-header,
+  .calculation-form,
+  .divisor-list {
+    border-color: #52625d;
+  }
+
+  .results-heading,
+  .divisor-result {
+    border-color: #384842;
+  }
+
+  .eyebrow,
+  .subtitle,
+  .empty-state {
+    color: #b8c8c2;
+  }
+
+  h1,
+  h2,
+  h3,
+  label,
+  .equation {
+    color: #edf3f0;
+  }
+
+  .arabic-title,
+  h3 strong {
+    color: #8dd3d0;
+  }
+
+  input {
+    border-color: #61756e;
+    background: #172321;
+    color: #f8fbf9;
+  }
+
+  input:hover {
+    border-color: #8dd3d0;
+  }
+
+  .button-secondary {
+    border-color: #718780;
+    color: #d7e6e0;
+  }
+
+  .button-secondary:hover {
+    border-color: #8dd3d0;
+    background: #213532;
+  }
+
+  .input-error {
+    color: #ffad98;
+  }
+
+  .update-banner {
+    border-color: #8dd3d0;
+    background: #172321;
+    color: #edf3f0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .divisor-result {
+    animation: result-appear 180ms ease-out both;
+  }
+
+  .divisor-result:nth-child(2) {
+    animation-delay: 35ms;
+  }
+
+  .divisor-result:nth-child(3) {
+    animation-delay: 70ms;
+  }
+
+  .divisor-result:nth-child(n + 4) {
+    animation-delay: 105ms;
+  }
+}
+
+@keyframes result-appear {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  :root,
+  html,
+  body {
+    color: #000000;
+    background: #ffffff;
+  }
+
+  .app-shell {
+    padding: 0;
+  }
+
+  .instrument {
+    width: 100%;
+  }
+
+  .controls,
+  .copy-button,
+  .update-banner {
+    display: none;
+  }
+
+  .app-header,
+  .calculation-form,
+  .divisor-list,
+  .results-heading,
+  .divisor-result {
+    border-color: #808080;
+  }
+
+  h1,
+  h2,
+  h3,
+  label,
+  .equation,
+  .subtitle,
+  .empty-state,
+  input {
+    color: #000000;
+  }
+
+  .arabic-title,
+  h3 strong {
+    color: #000000;
+  }
+
+  input {
+    border: 0;
+    padding: 0;
+    background: transparent;
+  }
+
+  .field-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .calculation-form {
+    padding: 16px 0;
+  }
+
+  .results-region {
+    padding-top: 20px;
+  }
+
+  .divisor-result {
+    break-inside: avoid;
+  }
+}
