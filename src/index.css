@@ -115,6 +115,15 @@ button:disabled {
   padding: var(--space-5) 0 var(--space-8);
 }
 
+.brand-mark {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-4);
+  border-radius: 11px;
+  box-shadow: var(--shadow-raised);
+}
+
 .eyebrow {
   margin: 0 0 var(--space-2);
   color: var(--text-secondary);
@@ -446,6 +455,40 @@ h3 strong {
 
   .divisor-result:nth-child(n + 4) {
     animation-delay: 120ms;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mark-dot {
+    animation: mark-bob 3.2s ease-in-out infinite;
+  }
+
+  .mark-dot-b {
+    animation-delay: -1.6s;
+  }
+
+  .brand-mark:hover .mark-dot {
+    animation-duration: 0.9s;
+  }
+
+  .mark-dots[data-hit] .mark-dot {
+    animation: mark-agree 700ms cubic-bezier(0.5, 0, 0.2, 1) 1;
+  }
+
+  .mark-dots[data-hit] .mark-dot-b {
+    --slide: -3px;
+  }
+}
+
+@keyframes mark-bob {
+  50% {
+    transform: translateY(-2.5px);
+  }
+}
+
+@keyframes mark-agree {
+  45% {
+    transform: translateX(var(--slide, 3px));
   }
 }
 

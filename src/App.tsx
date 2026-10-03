@@ -22,6 +22,38 @@ function Glyph({ children }: { children: ReactNode }) {
   );
 }
 
+// The favicon mark (ت: a bowl under two dots) as an inline tile. Dots bob at rest
+// and slide together on each calculation; motion is gated in index.css.
+function BrandMark({ agreed }: { agreed: string }) {
+  return (
+    <svg
+      className="brand-mark"
+      viewBox="0 0 64 64"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect width="64" height="64" rx="14" fill="#17140f" />
+      <path
+        d="M12 28v3c0 9 6 15 16 15h24"
+        fill="none"
+        stroke="#5fae9c"
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <g
+        key={agreed}
+        className="mark-dots"
+        data-hit={agreed || undefined}
+        fill="#5fae9c"
+      >
+        <path className="mark-dot mark-dot-a" d="M30 10l5.5 5.5L30 21l-5.5-5.5z" />
+        <path className="mark-dot mark-dot-b" d="M42 10l5.5 5.5L42 21l-5.5-5.5z" />
+      </g>
+    </svg>
+  );
+}
+
 function CopyGlyph({ done }: { done: boolean }) {
   return (
     <Glyph>
@@ -146,6 +178,9 @@ export default function App() {
       </p>
       <section className="instrument" aria-labelledby="app-title">
         <header className="app-header">
+          <BrandMark
+            agreed={calculation ? calculation.first + '-' + calculation.second : ''}
+          />
           <p className="eyebrow">Arithmetic instrument</p>
           <h1 id="app-title">{TITLE}</h1>
           <p className="arabic-title" lang="ar" dir="rtl">

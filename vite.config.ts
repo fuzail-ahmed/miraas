@@ -14,7 +14,7 @@ export default defineConfig({
         name: "Tawafuq Bain Al A'dadain",
         short_name: 'Tawafuq',
         theme_color: '#fbf8f3',
-        background_color: '#fbf8f3',
+        background_color: '#17140f',
         display: 'standalone',
         start_url: '/',
         icons: [
