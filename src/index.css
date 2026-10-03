@@ -324,7 +324,9 @@ h2 {
 
 .divisor-result {
   display: grid;
-  grid-template-columns: max-content var(--space-4) max-content var(--space-4) max-content;
+  grid-template-columns: max-content var(--space-4) max-content var(
+      --space-4
+    ) max-content;
   justify-content: start;
   border-bottom: 1px solid var(--border);
   padding: var(--space-5) 0;
