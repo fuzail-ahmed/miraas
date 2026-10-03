@@ -259,6 +259,9 @@ input[aria-invalid='true'] {
 }
 
 .button-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   background: var(--accent);
   color: var(--accent-ink);
 }
@@ -443,8 +446,8 @@ h3 strong {
     --text-secondary: #d2c7b9;
     --border: #51483b;
     --border-strong: #847563;
-    --accent: #79d1c0;
-    --accent-hover: #95e1d3;
+    --accent: #5fae9c;
+    --accent-hover: #74c0ae;
     --accent-ink: #10221f;
     --error: #ffb1a2;
     --shadow-raised: 0 8px 20px rgb(0 0 0 / 20%);

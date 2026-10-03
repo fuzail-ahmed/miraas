@@ -1,9 +1,9 @@
-import { type FormEvent, useRef, useState } from 'react';
+import { type FormEvent, type ReactNode, useRef, useState } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 
 import { calculate, validateInputs, type DivisionOperation } from './tawafuq';
 
-function CopyGlyph({ done }: { done: boolean }) {
+function Glyph({ children }: { children: ReactNode }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -17,6 +17,14 @@ function CopyGlyph({ done }: { done: boolean }) {
       aria-hidden="true"
       focusable="false"
     >
+      {children}
+    </svg>
+  );
+}
+
+function CopyGlyph({ done }: { done: boolean }) {
+  return (
+    <Glyph>
       {done ? (
         <path d="M5 13l4 4L19 7" />
       ) : (
@@ -25,7 +33,15 @@ function CopyGlyph({ done }: { done: boolean }) {
           <path d="M5 15V6a2 2 0 0 1 2-2h9" />
         </>
       )}
-    </svg>
+    </Glyph>
+  );
+}
+
+function DivideGlyph() {
+  return (
+    <Glyph>
+      <path d="M5 12h14M12 6h.01M12 18h.01" />
+    </Glyph>
   );
 }
 
@@ -182,6 +198,7 @@ export default function App() {
 
           <div className="controls">
             <button className="button button-primary" type="submit">
+              <DivideGlyph />
               Calculate
             </button>
             <button
